@@ -1,0 +1,24 @@
+{% extends "gats_menu.html" %}
+
+
+{% block news %}
+<li class="tab" id="news"> 
+  <a id="news" class="tab_active"
+     href="{{ url_for('gats_news')  }}">
+    NEWS</a></li>
+{% endblock %}
+
+
+
+{% block content %}
+<div id="content">
+  {% for post in posts %}
+  <div id="news_post">
+    {{ post.html_text|safe }}
+    <hr>
+  </div>
+{% endfor  %}
+</div>
+{% endblock  %}
+
+

@@ -1,0 +1,54 @@
+{% extends "gats_layout.html" %}
+
+{% block javascript  %}
+<script type="text/javascript"
+	src="{{ url_for('static', filename='gats2.js')  }}">
+</script>
+{% endblock javascript %}
+
+
+
+{% block menu %}
+
+<div id="menu">
+  <ul id="navigator"> 
+    
+    {% block home  %}
+    <li class="tab" id="home"> 
+      <a id="home" class="tab" 
+	 href="{{ url_for('link_root')  }}">HOME</a></li>
+    {% endblock  %}
+    
+    {% block news  %}
+    <li class="tab" id="news"> 
+      <a id="news" class="tab" 
+	 href="{{ url_for('gats_news')  }}">NEWS</a></li>
+    {% endblock  %}
+
+    {% block music %}
+    <li class="tab" id="music"> 
+      <a id="music" class="tab" 
+	 href="{{ url_for('gats_music') }}">MUSIC</a></li>
+    {% endblock %}
+
+    {% block video %}
+    <li class="tab" id="video"> 
+      <a id="video" class="tab" 
+	 href="{{ url_for('gats_videos') }}">VIDEO</a></li>
+    {% endblock %}
+
+    {% block band  %}
+    <li class="tab" id="band"> 
+      <a id="band" class="tab" 
+	 href="{{ url_for('gats_band')  }}">THE BAND</a></li>
+    {% endblock %}
+
+    {% block tour %}
+    <li class="tab" id="tour"> 
+      <a id="tour" class="tab" 
+	 href="{{ url_for('gats_shows') }}"> TOUR</a></li>
+    {% endblock %}
+    
+  </ul>
+</div>
+{% endblock %}

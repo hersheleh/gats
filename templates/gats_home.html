@@ -1,0 +1,41 @@
+{% extends "gats_menu.html"  %}
+
+{% block home  %}
+<li class="tab" id="home"> 
+  <a class="tab_active" id="home"  href="{{ url_for('link_root')  }}">
+    HOME</a></li>
+{% endblock  %}
+
+{% block content  %}
+<div id="content">
+  <div id="news_post">
+    <div style="font-size:40px;
+		font-weight:bold"> 
+      Gibbons and the Sluts is a Band
+    </div>
+    <p>
+      Born from the Rubble of a thousand years of captivity
+      Gibbons has summond the Sluts to bring a frenzy of noise.
+      With horn and hammer they shall conquer the very ground.
+      With Accordion and Drum and Bass they will sound farther 
+      than the human ear can hear. With  Banjo you will kneel 
+      before their might and feel their plight!
+      <br />
+      To the Great Jupiter you shall prey!
+      <br />
+      To the Clouds you shall sing
+      <br />
+      The world will hear the Sluts
+      <br />
+      And you will answer
+    </p>
+    <img src="{{ url_for('static', filename='images/jupiter.jpg') }}">
+
+    
+
+  </div>
+</div>
+
+{% endblock content  %}
+
+

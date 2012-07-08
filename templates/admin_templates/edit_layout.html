@@ -1,0 +1,74 @@
+{% extends "gats_layout.html" %}
+
+{% block javascript %}
+<script type="text/javascript"
+	src="{{ url_for('static', filename='edit_config.js') }}">
+</script>
+
+<script type="text/javascript" 
+	src="{{ url_for('static', filename='aloha/lib/aloha.js')  }}"
+	data-aloha-plugins="common/format"></script>
+
+
+<script type="text/javascript"
+	src="{{ url_for('static', filename='SWFUpload/swfupload.js') }}">
+</script>
+
+<script type="text/javascript"
+	src="{{ url_for('static', filename='edit.js') }}"> </script>
+
+
+{% endblock javascript %}
+
+{% block header %}
+<div id="account">
+  Hello {{ name }}
+  <form action="{{ url_for('logout') }}">
+    <input class="button" type="submit" value="Logout">
+  </form>
+</div>
+{% endblock header %}
+
+{% block menu %}
+
+<div id="menu">
+  <ul id="navigator"> 
+    
+    {% block home  %}
+    <li class="tab" id="home"> <a id="home" class="tab" 
+		      href="{{ url_for('edit')  }}">HOME</a></li>
+    {% endblock  %}
+    
+    {% block news  %}
+    <li class="tab" id="news"> <a id="news" class="tab" 
+		      href="{{ url_for('edit_news')  }}">NEWS</a></li>
+    {% endblock  %}
+
+    {% block music %}
+    <li class="tab" id="music"> <a id="music" class="tab" 
+		       href="{{ url_for('edit') }}">MUSIC</a></li>
+    {% endblock %}
+    
+    {% block video %}
+    <li class="tab" id="video"> <a id="video" class="tab" 
+		       href="{{ url_for('edit_videos') }}">VIDEO</a></li>
+    {% endblock %}
+
+    {% block band  %}
+    <li class="tab" id="band"> <a id="band" class="tab" 
+		      href="{{ url_for('edit')  }}">THE BAND</a></li>
+    {% endblock %}
+
+    {% block tour %}
+    <li class="tab" id="tour"> <a id="tour" class="tab" 
+		      href="{{ url_for('edit_tour') }}"> TOUR</a></li>
+    {% endblock %}
+    
+  </ul>
+</div>
+{% endblock %}
+
+{% block content  %}
+
+
+{% endblock content  %}

@@ -1,0 +1,2 @@
+
+DATABASE = 'gats.db'

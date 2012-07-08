@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title> Gibbons and the Sluts </title>
+    <link href="{{ url_for('static', filename='gats.css')  }}" 
+	  type="text/css" rel="stylesheet" />
+
+    <link href="{{ url_for('static', filename='gats_dark.css') }}"
+	  type="text/css" rel="stylesheet" />
+    
+    <link href="{{ url_for('static', filename='aloha/css/aloha.css') }}"
+	  type="text/css" rel="stylesheet" />
+    
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js">
+    </script>
+    
+    <script type="text/javascript">
+      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    
+    {% block javascript  %}
+    {% endblock javascript %}
+    
+  </head>
+  {% block body %}
+  {% block body_style %}
+  <body id="gats">
+    {% endblock  %}
+    
+    <div id="whole-page">
+      <div id="header">
+	{% block header %}
+	{% endblock header %}
+	{# <img src="../static/images/gats_logo.png" 
+		alt="Gibbons and the Sluts"/>
+	<h1>Gibbons and the Sluts</h1> #}
+      </div>
+      
+      <div id="container">
+	{# HEADER AND BAND TITLE  #}
+
+	{# TOP SITE MENU  #}
+	<div id="menu-background"></div>
+	{% block menu %}
+
+	{% endblock %}
+
+
+	{# SITE CONTENT  #}
+	<div id="content-background"></div>
+
+	  
+	  
+	{% block content %}
+	<div id="content">
+	</div>
+	{% endblock content %}
+	  
+
+
+
+	<div id="bandcamp">
+	  <iframe 
+	     width="150" height="450" 
+	     style="position: relative; display: 
+		    block; width: 150px; height: 650px;" 
+	     src="http://bandcamp.com/EmbeddedPlayer/v=2/album=2387699828/size=tall2/bgcol=FFFFFF/linkcol=ffffff/transparent=true/" 
+	     allowtransparency="true" frameborder="0">
+	    <a href="http://gibbonsandthesluts.bandcamp.com/album/mamas-milk">
+	      Mama's Milk by Gibbons and the Sluts
+
+	    </a>
+	  </iframe>
+	</div>
+      </div>
+    </div>
+
+
+  </body>
+  {% endblock body %}
+</html>

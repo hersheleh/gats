@@ -1,0 +1,25 @@
+
+{% extends "gats_menu.html"  %}
+
+{% block body_style %}
+<body id="gats" 
+      style="
+	     background-image:url('../static/images/tour_poster-crop.jpg');
+	     background-size:cover">
+{% endblock  %}
+
+
+{% block tour %}
+<li class="tab"> 
+  <a class="tab_active" id="tour" 
+     href="{{ url_for('gats_shows') }}">
+     
+    TOUR</a></li>
+{% endblock %}
+
+
+{% block content  %}
+<div id="content">
+  Here comes the tour muthafucka!!!
+</div>
+{% endblock  %}

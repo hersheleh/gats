@@ -1,0 +1,179 @@
+
+
+
+#container {
+    margin-left:auto;
+    margin-right:auto;
+    width:1008px;
+    position:relative;
+    left:100px;
+}
+
+
+#content {
+    float:left;
+    width:504px;
+    height:650px;
+    position:relative;
+    top:-41px;
+    left:-252px;
+    overflow:auto;
+    font-size:18px;
+}
+
+#add_photo {
+    position:relative;
+    top:24px;
+    left:260px;
+    width:80px;
+    height:36px;
+    //border-radius:5px;
+    
+}
+
+
+
+button.post {
+    color:black;
+    background-color:green;
+    opacity:0.8;
+    border-radius:5px;
+    position:relative;
+    width:80px;
+    height:40px;
+    float:right;
+    top:30px;
+    bottom:30px;
+    right:20px;
+    font-family:"Courier 10 Pitch","Courier","Courier New";
+    font-size:20px;
+    font-weight:bold;
+}
+
+button.post:hover {
+    background-color:#19A319;
+}
+
+button.delete {
+
+    background-color:red;
+    opacity:0.8;
+    border-radius:5px;
+    float:right;
+    font-family:'Courier 10 Pitch','Courier New','Courier';
+    font-weight:bold;
+}
+
+button.delete:hover {
+    background-color:#CC0000;
+}
+
+
+#edit_news_post {
+    margin-left:auto;
+    margin-right:auto;
+    border:1px solid #333333;
+    padding-left:7px;
+    padding-right:7px;
+    width:450px;
+    min-height:50px;
+    border-radius:15px;
+    position:relative;
+    top:23px;
+}
+
+#posted_content {
+    position:relative;
+    top:100px;
+}
+
+#news_post {
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:7px;
+    padding-right:7px;
+    width:450px;
+    border-radius:15px;
+    position:relative;
+    top:50px;
+    padding-bottom:10px;
+}
+
+#account {
+    float:right;
+}
+
+#login {
+    margin-left:auto;
+    margin-right:auto;
+    color:white;
+    font-size:40px;
+}
+
+input.button {
+
+    color:black;
+    background-color:green;
+    opacity:0.8;
+    border-radius:5px;
+    position:relative;
+    width:160px;
+    height:60px;
+    font-size:35px;
+    font-family:'Courier 10 Pitch','Courier New','Courier';
+    font-weight:bold;
+}
+
+input.button:hover {
+
+    background-color:#19A319;    
+}
+
+input.field {
+    background-color:black;
+    color:green;
+    border-radius:5px;
+    width:180px;
+    height:40px;
+    opacity:0.8;
+    font-weight:bold;
+    font-size:20px;
+}
+
+#menu {
+    margin-left:auto;
+    margin-right:auto;
+    width:504px;
+    position:relative;
+    top:-42px;
+    font-weight:bold;
+}
+
+#header {
+    border-radius:15px;
+    margin-left:auto;
+    margin-right:auto;
+    font-weight:bold;
+    height:135px;
+    background-image: url("../static/images/gats_logo-new.png");
+    background-repeat: no-repeat;   
+}
+
+
+li.tab {
+    float:left;
+}
+
+ul#navigator {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    height:42px;
+    width:700px;
+}
+
+#bandcamp {
+    position:absolute;
+    right:70px;
+}
+
