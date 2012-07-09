@@ -184,7 +184,7 @@ def edit():
     return redirect(url_for('login'))
 
 
-@app.route('/edit/news')
+@app.route('/edit/news', methods=['GET','POST'])
 def edit_news():
     if 'username' in session:
         posts = get_news()

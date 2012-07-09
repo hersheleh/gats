@@ -35,6 +35,10 @@ function update_news(data) {
 }
 
 
+// ########################################################################
+/* THESE FUNCTIONS CONFIGURE AND DICTATE 
+   THE FUNCTIONALITY OF SWFUPLOAD */
+
 var swfu;
 
 window.onload = function() {
@@ -42,6 +46,7 @@ window.onload = function() {
 	// PATHS TO SWFUPLOAD CODE
 	upload_url : $SCRIPT_ROOT +'/upload',
 	flash_url : $SCRIPT_ROOT+"/static/SWFUpload/Flash/swfupload.swf",
+	file_post_name: 'file',
 	
 	prevent_swf_caching: 'true',
 	
@@ -53,8 +58,9 @@ window.onload = function() {
 	button_height:'22',
 	
 	// 
-	file_queued_handler: fileQueued
-	/*upload_progress_handler: uploadProgress,
+	file_queued_handler: fileQueued,
+	upload_progress_handler: uploadProgress
+	/*
 	upload_error_handler: uploadError,
 	upload_success_handler: uploadSuccess,
 	upload_complete_handler: uploadComplete*/
@@ -67,11 +73,20 @@ function fileQueued(file) {
 }
 
 function uploadFile(form, e) {
-
     try {
 	swfu.startUpload();
-	
-    } catch(ex) {
-	
+    } catch(ex) {}
+    return false;
+}
+
+function uploadProgress(file, bytesLoaded, bytesTotal) {
+
+    try {
+	var percent = Math.ceil((bytesLoaded / bytesTotal) * 100);
+	$('#upload-progressbar-container').css("display", "block");
+	$('#upload-progressbar').css("width", percent+'%')
+    } catch (e) {
     }
 }
+
+// ##################################################################################

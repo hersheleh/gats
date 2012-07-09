@@ -27,10 +27,24 @@
     left:260px;
     width:80px;
     height:36px;
-    //border-radius:5px;
+    //border-radius:5px;   
+}
+
+#upload-progressbar-container {
+    border-radius:3px;
+    //background-color:black;
+    //opacity:;
+    width:100px;
     
 }
 
+#upload-progressbar {
+    border-radius:3px;
+    background-color:red;
+    opacity:0.6;
+    height: 10px;
+    width:0%;
+}
 
 
 button.post {

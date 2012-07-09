@@ -25,7 +25,6 @@
 
   <div id="add_photo">
     <form method="post" id="create_file" 
-	  action="{{ url_for('upload_file') }}" 
 	  onsubmit="return uploadFile(this, event);">
       <input type="text" name="filename-text" id="filename-text"/>
       <div id="swfupload-container"></div>
