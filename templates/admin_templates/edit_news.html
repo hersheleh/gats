@@ -16,19 +16,23 @@
 <div id="content">
   <div id="edit_news_post">
     <p class="add_post" id="edit">
-      Write something here...
+      Write somaething here...
     </p>
 
 
   </div>
-
-
+  <div id="upload_feedback"> 
+    <img id="thumbnail" src=""/>
+    <span id="upload_done"><span>
+  </div>
+  
   <div id="add_photo">
     <form method="post" id="create_file" 
 	  onsubmit="return uploadFile(this, event);">
       <input type="text" name="filename-text" id="filename-text"/>
       <div id="swfupload-container"></div>
       <input type="hidden" name="hidFileID" id="hidFileID" value=""/>
+      <input type="submit" value="Submit"/>
       <div id="upload-progressbar-container">
 	<div id="upload-progressbar">
 	</div>
@@ -43,7 +47,7 @@
     {% for post in posts  %}
     <div id="news_post">
       <div id="{{ post.news_id }}">
-	<img src="{{ post.filename }}">
+	<img src="{{ post.filename }}" alt=" ">
 	{{ post.html_text|safe }}<br />
       </div>
       <button class="delete" id="{{ post.news_id }}">DELETE

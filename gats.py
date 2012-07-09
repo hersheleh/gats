@@ -203,7 +203,7 @@ def edit_tour():
 
 @app.route('/edit/add_news', methods=['POST'])
 def add_news():
-
+    
     print request.form['filename']
     g.db.execute('insert into news(rich_text, filename) values(?,?)', 
                  [request.form['news_post'], request.form['filename']])

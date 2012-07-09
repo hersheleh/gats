@@ -1,3 +1,4 @@
+var name_of_uploaded_file = "";
 
 
 Aloha.ready( function() {
@@ -12,7 +13,7 @@ $(document).ready(function() {
 	var image = $('#upload_target').contents().find('body').html();
 	$.post($SCRIPT_ROOT + '/edit/add_news', 
 	       { news_post: text,
-		 filename: image }, 
+		 filename: name_of_uploaded_file }, 
 	       function(data){
 		   update_news(data);
 	       });
@@ -52,17 +53,18 @@ window.onload = function() {
 	
 	// BUTTON CONFIGURATION
 	button_placeholder_id: 'swfupload-container',
-	button_image_url: '/static/images/button_upload.png',
+	button_image_url: $SCRIPT_ROOT+'/static/images/button_upload.png',
 	button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
 	button_width: '61',
 	button_height:'22',
 	
 	// 
 	file_queued_handler: fileQueued,
-	upload_progress_handler: uploadProgress
-	/*
+	upload_progress_handler: uploadProgress,
+	
 	upload_error_handler: uploadError,
-	upload_success_handler: uploadSuccess,
+	upload_success_handler: uploadSuccess
+	/*
 	upload_complete_handler: uploadComplete*/
     }
     swfu = new SWFUpload(settings_object);
@@ -88,5 +90,24 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
     } catch (e) {
     }
 }
+
+function uploadError(file, errorCode, message) {
+}
+
+function uploadSuccess(file, serverData, recievedResponse) {
+    try {
+	name_of_uploaded_file = serverData;
+	setThumbnail(serverData);
+    } catch (e){}
+
+}
+
+function setThumbnail(filename) {
+    $("img#thumbnail").attr('src', $SCRIPT_ROOT+"/static/files/images/"+
+			    filename);
+    $("img#thumbnail").width(100);
+    $("span#upload_done").text("Upload Done");
+}
+
 
 // ##################################################################################
