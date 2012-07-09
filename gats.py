@@ -1,5 +1,7 @@
 import sqlite3
 import os
+import PIL
+from PIL import Image
 from stuff import *
 from config_gats import *
 from contextlib import closing

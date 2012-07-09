@@ -47,7 +47,7 @@
     {% for post in posts  %}
     <div id="news_post">
       <div id="{{ post.news_id }}">
-	<img src="{{ post.filename }}" alt=" ">
+	<img class="post_image" src="{{ post.filename }}" alt=" ">
 	{{ post.html_text|safe }}<br />
       </div>
       <button class="delete" id="{{ post.news_id }}">DELETE
