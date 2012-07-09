@@ -1,24 +1,24 @@
 
-
-
 #container {
     margin-left:auto;
     margin-right:auto;
-    width:1008px;
+    width:1210px;
     position:relative;
-    left:100px;
+    float:right;
+    //left:20px;
 }
 
 
 #content {
     float:left;
-    width:504px;
+    width:600px;
     height:650px;
     position:relative;
     top:-41px;
-    left:-252px;
+    left:-215px;
     overflow:auto;
     font-size:18px;
+
 }
 
 #add_photo {
@@ -46,12 +46,10 @@
 }
 
 #upload_feedback {
-    //background-color:blue;
     width:100px;
-    //height:100px;
     position:relative;
     float:left;
-    right:-220px;
+    right:-200px;
     top:30px;
 }
 
@@ -166,9 +164,10 @@ input.field {
 #menu {
     margin-left:auto;
     margin-right:auto;
-    width:504px;
+    width:608px;
     position:relative;
     top:-42px;
+    left:85px;
     font-weight:bold;
 }
 
@@ -197,6 +196,6 @@ ul#navigator {
 
 #bandcamp {
     position:absolute;
-    right:70px;
+    right:20px;
 }
 
