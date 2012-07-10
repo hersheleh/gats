@@ -1,3 +1,4 @@
+
 var name_of_uploaded_file = "";
 
 
@@ -33,7 +34,7 @@ $(document).ready(function() {
 function update_news(data) {
     new_data = $(data).find('div#posted_content');
     $("div#posted_content").replaceWith(new_data);
-    $("img.post_image").width(450);
+    $("img.post_image").width(550);
 }
 
 

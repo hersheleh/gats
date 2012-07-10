@@ -51,12 +51,19 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
+            resize_image(filename)
+            
     return filename
 
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+@app.route('/uploads_resized/<filename>')
+def resized_images(filename):
+    directory = os.path.join(app.config['UPLOAD_FOLDER'], "resized")
+    return send_from_directory(directory, filename);
     
 
 ##############################################################
@@ -72,9 +79,9 @@ def gats_news():
     posts = get_news()
     return render_template("gats_news.html",posts=posts)
 
-@app.route('/music')
-def gats_music():
-    return render_template("gats_music.html")
+@app.route('/photos')
+def gats_photos():
+    return render_template("gats_photos.html")
 
 @app.route('/videos')
 def gats_videos():
@@ -104,8 +111,8 @@ def navigate():
         posts = get_news()
         return render_template("gats_news.html",posts=posts)
 
-    elif "music" in page:
-        return render_template("gats_music.html")
+    elif "photos" in page:
+        return render_template("gats_photos.html")
 
     elif "video" in page:
         return render_template("gats_videos.html")
@@ -173,9 +180,23 @@ def get_news():
     
     for post in post_list:
         posts.append(news_post(post[0], post[1], 
-                               url_for('uploaded_file',filename=post[2])))
+                               url_for('resized_images',filename=post[2])))
         
     return reversed(posts)
+
+
+
+def resize_image(filename):
+    size = 550, 550
+    image_file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    save_path = os.path.join(app.config['UPLOAD_FOLDER'], "resized")
+
+    image = Image.open(image_file)
+    image.thumbnail(size, Image.ANTIALIAS)
+    image.save(os.path.join(save_path, filename), "JPEG")
+    
+    
+
 
 
 @app.route('/edit')

@@ -3,11 +3,9 @@
 
 {% block news %}
 <li class="tab" id="news"> 
-  <a id="news" class="tab"
-     href="{{ url_for('edit_news')  }}"
-     style="background-color:black;
-	    color:white;
-	    opacity:0.8;">
+  <a id="news" class="tab_active"
+     href="{{ url_for('edit_news')  }}">
+     
     NEWS</a></li>
 {% endblock news %}
 
@@ -45,7 +43,7 @@
 
   <div id="posted_content">
     {% for post in posts  %}
-    <div id="news_post">
+    <div class="news_post">
       <div id="{{ post.news_id }}">
 	<img class="post_image" src="{{ post.filename }}" alt=" ">
 	{{ post.html_text|safe }}<br />
@@ -56,7 +54,7 @@
     </div>
 
     {% else %}
-    <div  id="news_post">
+    <div  class="news_post">
       Nothing here
     </div>
     {% endfor %}

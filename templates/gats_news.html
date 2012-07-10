@@ -13,7 +13,8 @@
 {% block content %}
 <div id="content">
   {% for post in posts %}
-  <div id="news_post">
+  <div class="news_post">
+    <img class="Post_image" src="{{ post.filename }}" alt=" ">
     {{ post.html_text|safe }}
     <hr>
   </div>
