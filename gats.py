@@ -51,7 +51,8 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
-            resize_image(filename)
+            resize_image(filename, (550, 1000) , "resized")
+            resize_image(filename, (200, 200) , "thumbnails")
             
     return filename
 
@@ -64,9 +65,14 @@ def uploaded_file(filename):
 def resized_images(filename):
     directory = os.path.join(app.config['UPLOAD_FOLDER'], "resized")
     return send_from_directory(directory, filename);
+
+@app.route('/image_thumbnails/<filename>')
+def thumbnails(filename):
+    directory = os.path.join(app.confi['UPLOAD_FOLDER'], "thumbnails")
+    return send_from_directory(directory, filename)
     
 
-##############################################################
+#################################################################
 
 ######## JAVASCRIPT FALLBACK ROUTES##############################
 
@@ -122,11 +128,11 @@ def navigate():
 
     elif "tour" in page:
         return render_template("gats_shows.html")
-#####################################################################
+#######################################################################
 
 
 
-####### ROUTES FOR EDITING THE SITE #############################
+###### AUTHENTICATION AND LOGIN LOGOUT ################################
 
 @app.route('/login', methods=['GET','POST'])
 def login():
@@ -173,32 +179,42 @@ def authenticate(username, password):
     print 'false'
     return False
 
+########################################################################
+
+####### UTILITY FUNCTIONS ################################################
+
 def get_news():
     posts = []
     raw_data = g.db.execute('select id, rich_text, filename from news')
     post_list = raw_data.fetchall();
     
     for post in post_list:
-        posts.append(news_post(post[0], post[1], 
-                               url_for('resized_images',filename=post[2])))
+        if (post[2] != ""):
+            posts.append(news_post(post[0], post[1], 
+                                   url_for('resized_images',
+                                           filename=post[2])))
+        else:
+            posts.append(news_post(post[0], post[1], post[2]))
         
     return reversed(posts)
 
 
 
-def resize_image(filename):
-    size = 550, 550
+def resize_image(filename, size, folder):
+    
     image_file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    save_path = os.path.join(app.config['UPLOAD_FOLDER'], "resized")
-
+    save_path = os.path.join(app.config['UPLOAD_FOLDER'], folder)
+    
     image = Image.open(image_file)
+    print image.size
     image.thumbnail(size, Image.ANTIALIAS)
     image.save(os.path.join(save_path, filename), "JPEG")
     
     
+#########################################################################
 
 
-
+####### ROUTES FOR EDITING THE SITE ###################################
 @app.route('/edit')
 def edit():
     if 'username' in session:
@@ -215,6 +231,10 @@ def edit_news():
                                posts=posts,name=session['username'])
     return redirect(url_for('login'))
 
+@app.route('/edit/photos')
+def edit_photos():
+    return render_template("admin_templates/edit_photos.html")
+
 
 @app.route('/edit/videos')
 def edit_videos():
@@ -228,10 +248,14 @@ def edit_tour():
 def add_news():
     
     print request.form['filename']
+
+    if request.form['filename'] == "":
+        print "waboodblybee"
+
     g.db.execute('insert into news(rich_text, filename) values(?,?)', 
                  [request.form['news_post'], request.form['filename']])
     g.db.commit()
-    print 'wassup'
+
     return redirect(url_for('edit_news'))
 
 @app.route('/edit/delete_news', methods=['POST'])

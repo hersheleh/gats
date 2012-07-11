@@ -29,8 +29,10 @@
       <br />
       And you will answer
     </p>
-    <img src="{{ url_for('static', filename='images/jupiter.jpg') }}">
-
+    <a href="{{ url_for('uploaded_file', filename='jupiter.jpg') }}"
+       rel="lightbox">
+      <img src="{{ url_for('resized_images', filename='jupiter.jpg') }}">
+    </a>
     
 
   </div>

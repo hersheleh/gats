@@ -3,6 +3,7 @@
     margin-left:auto;
     margin-right:auto;
     width:1210px;
+    height:780px;
     position:relative;
     float:right;
     //left:20px;
@@ -31,9 +32,38 @@
     //border-radius:5px;   
 }
 
+#add_to_photos_tab {
+    
+    width:100px;
+
+}
+
+#photo_tab_thumbnail {
+    position:relative;
+    float:right;
+    right:280px;
+    top:20px;
+    width:150px;
+    height:100px;
+    //background-color:blue;
+    
+}
+
+
+#filename-text {
+
+    border-radius:5px;
+    border:0px;
+    //background-color: purple;
+    background:none;
+    color:black;
+    font-family:"Courier 10 Pitch";
+    font-weight:bold;
+}
+
 #upload-progressbar-container {
     border-radius:3px;
-    width:120px;
+    width:150px;
     
 }
 
@@ -49,7 +79,7 @@
     width:100px;
     position:relative;
     float:left;
-    right:-200px;
+    right:-280px;
     top:30px;
 }
 
@@ -63,8 +93,8 @@ button.post {
     width:80px;
     height:40px;
     float:right;
-    right:-50px;
-    top:65px;
+    right:-60px;
+    top:100px;
     bottom:30px;
     font-family:"Courier 10 Pitch","Courier","Courier New";
     font-size:20px;
@@ -109,13 +139,16 @@ button.delete:hover {
 }
 
 .news_post {
+    position:relative;
+    float:left;
     margin-left:auto;
     margin-right:auto;
     padding-left:7px;
     padding-right:7px;
+
     width:550px;
-    border-radius:15px;
-    position:relative;
+
+
     top:50px;
     padding-bottom:10px;
 }

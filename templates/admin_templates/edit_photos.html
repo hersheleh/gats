@@ -1,9 +1,43 @@
-{% extends "gats_menu.html" %}
+{% extends "admin_templates/edit_layout.html" %}
 
 {% block photos %}
+<li class="tab" id="news">
+  <a id="news" class="tab_active"
+     href="{{ url_for('edit_photos') }}">
+    PHOTOS</a></li>
+
+{% endblock photos %}
+
+{% block content  %}
 
 
 
+<div id="content">
+  
+  <div id="photo_tab_thumbnail">
+    <img id="thumbnail" src=""/>
+    <span id="upload_done"></span>
+  </div>
 
-{% endblock  %}
 
+  <div id="add_to_photos_tab">
+
+
+    <form method="post" id="create_file" 
+	  onsubmit="return uploadFile(this, event);">
+      <input type="text" name="filename-text" id="filename-text"/>
+      <div id="swfupload-container"></div>
+      <input type="hidden" name="hidFileID" id="hidFileID" value=""/>
+      <button class="submit_photo" >Add Photo</button>
+      <div id="upload-progressbar-container">
+	<div id="upload-progressbar">
+	</div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+
+{% endblock content %}

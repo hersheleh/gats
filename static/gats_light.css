@@ -8,7 +8,7 @@ body#gats {
     background-size:cover;
     color:black;
     font-family:'Courier 10 Pitch','Courier','Courier New';
-    font-size: 20px;
+    font-size: 25px;
     font-weight:bold;
 }
 
@@ -16,11 +16,11 @@ body#gats {
 
 #content-background {
     background-color:white;
-    width:504px;
+    width:609px;
     height:700px;
     position:relative;
     float:left;
-    left:252px;
+    left:386px;
     top:-42px;
     opacity:0.4;
     border-bottom-left-radius:15px;
@@ -31,9 +31,10 @@ body#gats {
     margin-left:auto;
     margin-right:auto;
     position:relative;
-    top:6px;
-    width:504px;
-    height:48px;
+    top:12px;
+    left:85px;
+    width:608px;
+    height:54px;
     background-color:white;
     opacity:0.6;
     border-top-left-radius:15px;

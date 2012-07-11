@@ -34,7 +34,7 @@ $(document).ready(function() {
 function update_news(data) {
     new_data = $(data).find('div#posted_content');
     $("div#posted_content").replaceWith(new_data);
-    $("img.post_image").width(550);
+    //$("img.post_image").width(550);
 }
 
 
@@ -74,6 +74,7 @@ window.onload = function() {
 
 function fileQueued(file) {
     $('#filename-text').val(file.name);
+    $('#create_file').submit();
 }
 
 function uploadFile(form, e) {
@@ -108,7 +109,7 @@ function setThumbnail(filename) {
     $("img#thumbnail").attr('src', $SCRIPT_ROOT+"/static/files/images/"+
 			    filename);
     $("img#thumbnail").width(100);
-    $("span#upload_done").text("Upload Done");
+    $("span#upload_done").text("Upload Complete");
 }
 
 

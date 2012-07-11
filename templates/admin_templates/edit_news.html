@@ -14,14 +14,14 @@
 <div id="content">
   <div id="edit_news_post">
     <p class="add_post" id="edit">
-      Write somaething here...
+      Write something here...
     </p>
 
 
   </div>
   <div id="upload_feedback"> 
     <img id="thumbnail" src=""/>
-    <span id="upload_done"><span>
+    <span id="upload_done"></span>
   </div>
   
   <div id="add_photo">
@@ -30,7 +30,7 @@
       <input type="text" name="filename-text" id="filename-text"/>
       <div id="swfupload-container"></div>
       <input type="hidden" name="hidFileID" id="hidFileID" value=""/>
-      <input type="submit" value="Submit"/>
+      {#<input class="add_photo_to_post" type="submit" value="Add Photo"/>#}
       <div id="upload-progressbar-container">
 	<div id="upload-progressbar">
 	</div>
@@ -45,7 +45,9 @@
     {% for post in posts  %}
     <div class="news_post">
       <div id="{{ post.news_id }}">
-	<img class="post_image" src="{{ post.filename }}" alt=" ">
+	{% if post.filename != "" %}
+	<img class="post_image" src="{{ post.filename }}" alt="">
+	{% endif  %}
 	{{ post.html_text|safe }}<br />
       </div>
       <button class="delete" id="{{ post.news_id }}">DELETE
@@ -55,7 +57,7 @@
 
     {% else %}
     <div  class="news_post">
-      Nothing here
+     <p>Nothing here</p>
     </div>
     {% endfor %}
   </div>
