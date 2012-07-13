@@ -13,11 +13,18 @@
 {% block content %}
 <div id="content">
 
-  <a href="{{ url_for('uploaded_file', filename='jupiter.jpg')  }}" rel="lightbox[the_park]">JUPITER</a>
-  <a href="{{ url_for('uploaded_file', filename='two_towers.jpg')  }}" rel="lightbox[the_park]">TWO TOWERS</a>
-  
+   <div id="photo_gallery">
+    {% for photo in photos  %}
+    <div class="gats_photo" id="{{ photo.photo_id }}">
+      <a class="gats_images" 
+	 href="{{ url_for('uploaded_file', filename=photo.filename) }}"
+	 rel="lightbox[gats_gallery]">
+	<img src="{{ url_for('thumbnails', filename=photo.filename) }}" />
+      </a>
+    </div>
 
-
+    {% endfor %}
+  </div>
 
 </div>
 {% endblock %}

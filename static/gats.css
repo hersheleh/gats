@@ -21,6 +21,14 @@
 
 }
 
+.home_page {
+    
+    background-image: url('../static/files/images/jupiter.jpg');
+    background-repeat:no-repeat;
+
+    height:500px;
+}
+
 #photo_gallery {
     margin-left:auto;
     margin-right:auto;

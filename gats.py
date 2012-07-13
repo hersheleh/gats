@@ -50,8 +50,14 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+            image = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            image_width = image.size[0]
             
-            resize_image(filename, (550, 1000) , "resized")
+            if image_width > 900:
+                resize_image(filename, (900, 900), "")
+            
+            resize_image(filename, (550, 800) , "resized")
             resize_image(filename, (165, 165) , "thumbnails")
             
     return filename
@@ -118,7 +124,8 @@ def navigate():
         return render_template("gats_news.html",posts=posts)
 
     elif "photos" in page:
-        return render_template("gats_photos.html")
+        photos = get_photos()
+        return render_template("gats_photos.html", photos=photos)
 
     elif "video" in page:
         return render_template("gats_videos.html")

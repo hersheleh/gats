@@ -14,7 +14,7 @@
 <div id="content">
   {% for post in posts %}
   <div class="news_post">
-    <img class="Post_image" src="{{ post.filename }}" alt=" ">
+    <img class="Post_image" src="{{ post.filename }}" alt="">
     {{ post.html_text|safe }}
     <hr>
   </div>
