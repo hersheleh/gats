@@ -8,6 +8,13 @@ class news_post(object):
         self.html_text = html_text
         self.filename = filename
 
+
+class gats_image(object):
+    def __init__(self, photo_id, filename):
+        self.photo_id = photo_id
+        self.filename = filename
+
+
 class account(object):
 
     def __init__(self, username, password):

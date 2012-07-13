@@ -11,7 +11,6 @@ Aloha.ready( function() {
 $(document).ready(function() {
     $("#content").delegate("button.post","click",function(){
  	var text = $('p.add_post').html();
-	var image = $('#upload_target').contents().find('body').html();
 	$.post($SCRIPT_ROOT + '/edit/add_news', 
 	       { news_post: text,
 		 filename: name_of_uploaded_file }, 
@@ -22,7 +21,7 @@ $(document).ready(function() {
 });     
 	
 $(document).ready(function() {
-    $('#content').delegate("button.delete","click",function(){
+    $('#content').delegate("button.delete","click",function() {
 	var ID = this.id;
 	$.post($SCRIPT_ROOT + '/edit/delete_news', {del: ID},
 	       function(data) { 
@@ -31,10 +30,38 @@ $(document).ready(function() {
     });
 });
 
+$(document).ready(function() {
+    $('#content').delegate("button.add_photo","click",function() {
+	$.post($SCRIPT_ROOT + '/edit/add_photo', 
+	       { filename: name_of_uploaded_file },
+	       function(data) {
+		   update_photos(data);
+	       });
+    });
+	
+});
+
+$(document).ready(function() {
+    $('#content').delegate("button.delete_photo","click", function() {
+	var ID = this.id;
+	$.post($SCRIPT_ROOT + '/edit/delete_photo', 
+	       {photo_id_to_delete: ID},
+	       function(data) {
+		   update_photos(data);
+	       });
+    });
+});
+
+
 function update_news(data) {
     new_data = $(data).find('div#posted_content');
     $("div#posted_content").replaceWith(new_data);
     //$("img.post_image").width(550);
+}
+
+function update_photos(data) {
+    new_photos = $(data).find('div#photo_gallery');
+    $("div#photo_gallery").replaceWith(new_photos);
 }
 
 
@@ -111,6 +138,5 @@ function setThumbnail(filename) {
     $("img#thumbnail").width(100);
     $("span#upload_done").text("Upload Complete");
 }
-
 
 // ##################################################################################

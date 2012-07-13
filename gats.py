@@ -52,7 +52,7 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
             resize_image(filename, (550, 1000) , "resized")
-            resize_image(filename, (200, 200) , "thumbnails")
+            resize_image(filename, (165, 165) , "thumbnails")
             
     return filename
 
@@ -68,7 +68,7 @@ def resized_images(filename):
 
 @app.route('/image_thumbnails/<filename>')
 def thumbnails(filename):
-    directory = os.path.join(app.confi['UPLOAD_FOLDER'], "thumbnails")
+    directory = os.path.join(app.config['UPLOAD_FOLDER'], "thumbnails")
     return send_from_directory(directory, filename)
     
 
@@ -186,7 +186,7 @@ def authenticate(username, password):
 def get_news():
     posts = []
     raw_data = g.db.execute('select id, rich_text, filename from news')
-    post_list = raw_data.fetchall();
+    post_list = raw_data.fetchall()
     
     for post in post_list:
         if (post[2] != ""):
@@ -198,6 +198,16 @@ def get_news():
         
     return reversed(posts)
 
+
+def get_photos():
+    photos = []
+    raw_data = g.db.execute('select id, filename from photos')
+    photo_list = raw_data.fetchall()
+
+    for photo in photo_list:
+        photos.append(gats_image(photo[0], photo[1]))
+
+    return reversed(photos)
 
 
 def resize_image(filename, size, folder):
@@ -233,7 +243,12 @@ def edit_news():
 
 @app.route('/edit/photos')
 def edit_photos():
-    return render_template("admin_templates/edit_photos.html")
+    if 'username' in session:
+        photos = get_photos()
+        return render_template("admin_templates/edit_photos.html",
+                               photos=photos, name=session['username'])
+    
+    return redirect(url_for('login'))
 
 
 @app.route('/edit/videos')
@@ -247,11 +262,6 @@ def edit_tour():
 @app.route('/edit/add_news', methods=['POST'])
 def add_news():
     
-    print request.form['filename']
-
-    if request.form['filename'] == "":
-        print "waboodblybee"
-
     g.db.execute('insert into news(rich_text, filename) values(?,?)', 
                  [request.form['news_post'], request.form['filename']])
     g.db.commit()
@@ -264,6 +274,22 @@ def delete_news():
                  [request.form['del']])
     g.db.commit()
     return redirect(url_for('edit_news'))
+
+
+@app.route('/edit/add_photo', methods=['POST'])
+def add_photo():
+    g.db.execute('insert into photos(filename) values(?)',
+                 [request.form['filename']])
+    g.db.commit()
+    return redirect(url_for('edit_photos'))
+
+@app.route('/edit/delete_photo', methods=['POST'])
+def delete_photo():
+    g.db.execute('delete from photos where id=?',
+                 [request.form['photo_id_to_delete']])
+    g.db.commit()
+    return redirect(url_for('edit_photos'))
+
 
 
 #################################################################

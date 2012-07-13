@@ -21,23 +21,34 @@
 
 
   <div id="add_to_photos_tab">
-
-
     <form method="post" id="create_file" 
 	  onsubmit="return uploadFile(this, event);">
       <input type="text" name="filename-text" id="filename-text"/>
       <div id="swfupload-container"></div>
       <input type="hidden" name="hidFileID" id="hidFileID" value=""/>
-      <button class="submit_photo" >Add Photo</button>
+      <button class="add_photo" >Add Photo</button>
+
       <div id="upload-progressbar-container">
 	<div id="upload-progressbar">
 	</div>
       </div>
+
     </form>
   </div>
+  
+  <div id="photo_gallery">
+    {% for photo in photos  %}
+    <div class="gats_photo" id="{{ photo.photo_id }}">
+      <a class="gats_images" 
+	 href="{{ url_for('uploaded_file', filename=photo.filename) }}"
+	 rel="lightbox[gats_gallery]">
+	<img src="{{ url_for('thumbnails', filename=photo.filename) }}" />
+      </a>
+      <button class="delete_photo" id="{{ photo.photo_id}}">delete</button>
+    </div>
 
+    {% endfor %}
+  </div>
 </div>
-
-
 
 {% endblock content %}
