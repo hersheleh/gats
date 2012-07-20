@@ -18,16 +18,10 @@
     left:-215px;
     overflow:auto;
     font-size:18px;
+    color:white;
 
 }
 
-.home_page {
-    
-    background-image: url('../static/files/images/jupiter.jpg');
-    background-repeat:no-repeat;
-
-    height:500px;
-}
 
 #photo_gallery {
     margin-left:auto;
@@ -63,12 +57,18 @@ button.delete_photo {
 }
 
 .gats_photo {
-    
+    opacity:0.9;
     width:175px;
     display:inline-table;
-    //background-color:blue;
-    //float:left;
 }
+
+.gats_photo:hover {
+    
+    opacity:1;
+
+}
+
+
 
 #add_to_photos_tab {
     width:100px;
