@@ -1,3 +1,4 @@
+import datetime
 import sqlite3
 import os
 import PIL
@@ -51,7 +52,8 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-            image = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            image = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], 
+                                            filename))
             image_width = image.size[0]
             
             if image_width > 900:
@@ -192,16 +194,17 @@ def authenticate(username, password):
 
 def get_news():
     posts = []
-    raw_data = g.db.execute('select id, rich_text, filename from news')
+    raw_data = g.db.execute(
+        'select id, title, rich_text, filename from news')
     post_list = raw_data.fetchall()
     
     for post in post_list:
-        if (post[2] != ""):
-            posts.append(news_post(post[0], post[1], 
+        if (post[3] != ""):
+            posts.append(news_post(post[0], post[1], post[2], 
                                    url_for('resized_images',
-                                           filename=post[2])))
+                                           filename=post[3])))
         else:
-            posts.append(news_post(post[0], post[1], post[2]))
+            posts.append(news_post(post[0], post[1], post[2], post[3]))
         
     return reversed(posts)
 
@@ -269,8 +272,12 @@ def edit_tour():
 @app.route('/edit/add_news', methods=['POST'])
 def add_news():
     
-    g.db.execute('insert into news(rich_text, filename) values(?,?)', 
-                 [request.form['news_post'], request.form['filename']])
+    g.db.execute(
+        'insert into news(title, rich_text, filename) values(?,?,?)', 
+        [request.form['post_title'], 
+         request.form['news_post'], 
+         request.form['filename']])
+    
     g.db.commit()
 
     return redirect(url_for('edit_news'))

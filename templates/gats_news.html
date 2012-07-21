@@ -14,6 +14,9 @@
 <div id="content">
   {% for post in posts %}
   <div class="news_post">
+      <span class="news_title">
+	{{ post.title  }}
+      </span>
     {% if post.filename != "" %}
     <img class="post_image" src="{{ post.filename }}" alt="">
     {% endif  %}

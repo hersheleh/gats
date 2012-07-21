@@ -24,6 +24,15 @@ body#gats {
     border-bottom-right-radius:15px;
 }
 
+img.thumbnail {
+
+    background-color:black;
+    padding: 5px;
+    border-radius:5px;
+    
+}
+
+
 #menu-background {
     margin-left:auto;
     margin-right:auto;

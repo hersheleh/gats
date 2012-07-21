@@ -6,7 +6,8 @@ create table if not exists accounts (
 
 drop table if exists news;
 create table news (
-       id integer primary key autoincrement,
+       id integer primary key autoincrement,	
+       title string not null, 
        rich_text string not null,
        filename string
 );

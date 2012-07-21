@@ -11,8 +11,10 @@ Aloha.ready( function() {
 $(document).ready(function() {
     $("#content").delegate("button.post","click",function(){
  	var text = $('p.add_post').html();
+	var title = $("input[name='post_title']").val();
 	$.post($SCRIPT_ROOT + '/edit/add_news', 
 	       { news_post: text,
+		 post_title : title,
 		 filename: name_of_uploaded_file }, 
 	       function(data){
 		   update_news(data);

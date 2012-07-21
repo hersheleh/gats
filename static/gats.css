@@ -170,6 +170,13 @@ button.delete:hover {
     top:100px;
 }
 
+/*#MEEE {
+    //color:black;
+    font-size:100px;
+    font-weight:bold;
+
+}*/
+
 .news_post {
     position:relative;
     float:left;
@@ -180,6 +187,13 @@ button.delete:hover {
     width:550px;
     top:50px;
     padding-bottom:10px;
+}
+
+.news_title {
+    
+    font-size:25px;
+    font-weight:bold;
+
 }
 
 #account {

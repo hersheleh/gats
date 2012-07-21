@@ -13,7 +13,6 @@ body#gats {
 }
 
 
-
 #content-background {
     //background-color:black;
     width:609px;
@@ -27,7 +26,7 @@ body#gats {
     border-bottom-right-radius:15px;
 }
 
-img {
+img.thumbnail {
     background-color:black;
     padding:5px;
     border-radius:10px;

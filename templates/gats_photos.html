@@ -19,7 +19,8 @@
       <a class="gats_images" 
 	 href="{{ url_for('uploaded_file', filename=photo.filename) }}"
 	 rel="lightbox[gats_gallery]">
-	<img src="{{ url_for('thumbnails', filename=photo.filename) }}" />
+	<img class="thumbnail" 
+	     src="{{ url_for('thumbnails', filename=photo.filename) }}" />
       </a>
     </div>
 

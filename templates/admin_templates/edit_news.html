@@ -12,6 +12,8 @@
 {% block content  %}
 
 <div id="content">
+  
+  <input type="text" value="Title" name="post_title">
   <div id="edit_news_post">
     <p class="add_post" id="edit">
       Write something here...
@@ -40,11 +42,16 @@
 
 
   <button class="post">POST</button>
-
+  
   <div id="posted_content">
-    {% for post in posts  %}
+
+      {% for post in posts  %}
+
     <div class="news_post">
       <div id="{{ post.news_id }}">
+	<span class="news_title">
+	  {{ post.title }}
+	</span>	  
 	{% if post.filename != "" %}
 	<img class="post_image" src="{{ post.filename }}" alt="">
 	{% endif  %}
