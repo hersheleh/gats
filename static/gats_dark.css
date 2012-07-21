@@ -8,16 +8,16 @@ body#gats {
     background-size:cover;
     color:white;
     font-family:'Courier 10 Pitch','Courier','Courier New';
-    font-size: 25px;
+    font-size: 22px;
 }
 
 #content-background {
     background-color:black;
-    width:609px;
+    width:612px;
     height:700px;
     position:relative;
     float:left;
-    left:386px;
+    left:388px;
     top:-42px;
     opacity:0.8;
     border-bottom-left-radius:15px;
@@ -38,8 +38,8 @@ img.thumbnail {
     margin-right:auto;
     position:relative;
     top:12px;
-    left:85px;
-    width:608px;
+    left:87px;
+    width:611px;
     height:54px;
     background-color:white;
     opacity:0.3;
