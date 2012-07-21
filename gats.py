@@ -272,8 +272,10 @@ def edit_tour():
 @app.route('/edit/add_news', methods=['POST'])
 def add_news():
     
+    now = datetime.datetime.now()
+    date = now.strftime("%m/%d/%Y %H:%M")
     g.db.execute(
-        'insert into news(title, rich_text, filename) values(?,?,?)', 
+        'insert into news(title, rich_text, filename, post_date) values(?,?,?)', 
         [request.form['post_title'], 
          request.form['news_post'], 
          request.form['filename']])

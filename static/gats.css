@@ -151,6 +151,20 @@ button.delete:hover {
     background-color:#CC0000;
 }
 
+#edit_title {
+    font-family:'Courier 10 Pitch','Courier New','Courier';
+    font-weight:bold;
+    font-size:25px;
+    color:white;
+    background:none;
+    border:1px solid #333333;
+    border-radius:10px;
+    position:relative;
+    top:15px;
+    left:10px;
+    padding-left:7px;
+    padding-right:7px;
+}
 
 #edit_news_post {
     margin-left:auto;
