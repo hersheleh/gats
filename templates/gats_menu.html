@@ -13,11 +13,6 @@
 <div id="menu">
   <ul id="navigator"> 
     
-    {% block home  %}
-    <li class="tab" id="home"> 
-      <a id="home" class="tab" 
-	 href="{{ url_for('link_root')  }}">HOME</a></li>
-    {% endblock  %}
     
     {% block news  %}
     <li class="tab" id="news"> 
@@ -34,8 +29,15 @@
     {% block video %}
     <li class="tab" id="video"> 
       <a id="video" class="tab" 
-	 href="{{ url_for('gats_videos') }}">VIDEO</a></li>
+	 href="{{ url_for('gats_videos') }}">VIDEOS</a></li>
     {% endblock %}
+
+    {% block tour %}
+    <li class="tab" id="tour"> 
+      <a id="tour" class="tab" 
+	 href="{{ url_for('gats_shows') }}"> SHOWS</a></li>
+    {% endblock %}
+
 
     {% block band  %}
     <li class="tab" id="band"> 
@@ -43,11 +45,13 @@
 	 href="{{ url_for('gats_band')  }}">THE BAND</a></li>
     {% endblock %}
 
-    {% block tour %}
-    <li class="tab" id="tour"> 
-      <a id="tour" class="tab" 
-	 href="{{ url_for('gats_shows') }}"> TOUR</a></li>
+    {% block contact %}
+    <li class="tab" id="contact"> 
+      <a id="contact" class="tab" 
+	 href="{{ url_for('edit_tour') }}"> CONTACT</a></li>
     {% endblock %}
+
+
     
   </ul>
 </div>

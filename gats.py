@@ -195,17 +195,19 @@ def authenticate(username, password):
 def get_news():
     posts = []
     raw_data = g.db.execute(
-        'select id, title, rich_text, filename from news')
+        'select id, title, rich_text, post_date, author, filename from news')
     post_list = raw_data.fetchall()
     
     for post in post_list:
-        if (post[3] != ""):
+        if (post[5] != ""):
             posts.append(news_post(post[0], post[1], post[2], 
+                                   post[3], post[4],
                                    url_for('resized_images',
-                                           filename=post[3])))
+                                           filename=post[5])))
         else:
-            posts.append(news_post(post[0], post[1], post[2], post[3]))
-        
+            posts.append(news_post(post[0], post[1], post[2], post[3], 
+                                   post[4], post[5]))
+            
     return reversed(posts)
 
 
@@ -273,12 +275,15 @@ def edit_tour():
 def add_news():
     
     now = datetime.datetime.now()
-    date = now.strftime("%m/%d/%Y %H:%M")
+    date = now.strftime("%m/%d/%Y %I:%M %p")
+    poster = session['username']
     g.db.execute(
-        'insert into news(title, rich_text, filename, post_date) values(?,?,?)', 
+        'insert into news(title, rich_text, filename, post_date, author) values(?,?,?,?,?)', 
         [request.form['post_title'], 
          request.form['news_post'], 
-         request.form['filename']])
+         request.form['filename'],
+         date, 
+         poster])
     
     g.db.commit()
 

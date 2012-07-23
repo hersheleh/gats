@@ -184,6 +184,12 @@ button.delete:hover {
     top:100px;
 }
 
+.post_date {
+
+    font-size:12px;
+}
+
+
 /*#MEEE {
     //color:black;
     font-size:100px;

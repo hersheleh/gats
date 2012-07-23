@@ -3,11 +3,13 @@ import hashlib
 
 class news_post(object):
     
-    def __init__(self, news_id, title, html_text, filename):
+    def __init__(self, news_id, title, html_text, date, author, filename):
         self.news_id = news_id
         self.title = title
         self.html_text = html_text
         self.filename = filename
+        self.author = author
+        self.date = date
 
 
 class gats_image(object):

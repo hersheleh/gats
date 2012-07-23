@@ -10,7 +10,8 @@ create table news (
        title string not null, 
        rich_text string not null,
        filename string,
-       post_date string not null
+       post_date string not null,
+       author string not null
 );
 
 drop table if exists photos;

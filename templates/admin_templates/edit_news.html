@@ -45,7 +45,7 @@
   
   <div id="posted_content">
 
-      {% for post in posts  %}
+    {% for post in posts  %}
 
     <div class="news_post">
       <div id="{{ post.news_id }}">
@@ -57,6 +57,9 @@
 	{% endif  %}
 	{{ post.html_text|safe }}<br />
       </div>
+      <span class="post_date">
+	Posted: {{ post.date }} by {{ post.author }}
+      </span>
       <button class="delete" id="{{ post.news_id }}">DELETE
       </button>
       <hr>

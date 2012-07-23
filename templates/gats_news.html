@@ -14,17 +14,20 @@
 <div id="content">
   {% for post in posts %}
   <div class="news_post">
-      <span class="news_title">
+      <div class="news_title">
 	{{ post.title  }}
-      </span>
+      </div>
     {% if post.filename != "" %}
     <img class="post_image" src="{{ post.filename }}" alt="">
     {% endif  %}
 	
     <div class="post_text">
       {{ post.html_text|safe }}
-      <hr>
     </div>
+    <span class="post_date">
+      Posted: {{ post.date }} by {{ post.author }}
+    </span>
+    <hr>
   </div>
 {% endfor  %}
 </div>
