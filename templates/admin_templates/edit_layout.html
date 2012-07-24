@@ -48,13 +48,13 @@
     
     {% block video %}
     <li class="tab" id="video"> <a id="video" class="tab" 
-		       href="{{ url_for('edit_videos') }}">VIDEOS</a></li>
+		       href="{{ url_for('edit') }}">VIDEOS</a></li>
     {% endblock %}
 
     {% block tour %}
     <li class="tab" id="tour"> 
       <a id="tour" class="tab" 
-	 href="{{ url_for('edit_tour') }}"> SHOWS</a></li>
+	 href="{{ url_for('edit_shows') }}"> SHOWS</a></li>
     {% endblock %}
 
 
@@ -67,7 +67,7 @@
 
     {% block contact %}
     <li class="tab" id="contact"> <a id="contact" class="tab" 
-		      href="{{ url_for('edit_tour') }}"> CONTACT</a></li>
+		      href="{{ url_for('edit') }}"> CONTACT</a></li>
     {% endblock %}
 
 

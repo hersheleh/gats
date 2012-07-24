@@ -22,7 +22,6 @@
 
 }
 
-
 #photo_gallery {
     margin-left:auto;
     margin-right:auto;
@@ -178,6 +177,17 @@ button.delete:hover {
     position:relative;
     top:20px;
 }
+
+.show {
+    font-family:'Courier 10 Pitch','Courier New','Courier';
+    font-size:16px;
+    background:none;
+    border: 1px solid #333333;
+    border-radius:5px;
+    color:white;
+    display:block;
+}
+
 
 #posted_content {
     position:relative;

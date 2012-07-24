@@ -95,7 +95,8 @@ def gats_news():
 
 @app.route('/photos')
 def gats_photos():
-    return render_template("gats_photos.html")
+    photos = get_photos()
+    return render_template("gats_photos.html", photos=photos)
 
 @app.route('/videos')
 def gats_videos():
@@ -195,7 +196,8 @@ def authenticate(username, password):
 def get_news():
     posts = []
     raw_data = g.db.execute(
-        'select id, title, rich_text, post_date, author, filename from news')
+        'select id, title, rich_text, post_date, author, filename from news'
+        )
     post_list = raw_data.fetchall()
     
     for post in post_list:
@@ -221,6 +223,20 @@ def get_photos():
 
     return reversed(photos)
 
+def get_shows():
+    shows = []
+    raw_data = g.db.execute(
+        'select show_date, venue, city_state, extra_info from shows')
+
+    show_list = raw_data.fetchall()
+    
+    for show in show_list:
+        shows.append(
+            gats_show(show[0],show[1],show[2],show[3]))
+        
+    return reversed(shows)
+    
+
 
 def resize_image(filename, size, folder):
     
@@ -240,8 +256,8 @@ def resize_image(filename, size, folder):
 @app.route('/edit')
 def edit():
     if 'username' in session:
-        return render_template("admin_templates/edit_layout.html",
-                               name=session['username'])
+        return redirect(url_for('edit_news'))
+
     return redirect(url_for('login'))
 
 
@@ -263,13 +279,17 @@ def edit_photos():
     return redirect(url_for('login'))
 
 
-@app.route('/edit/videos')
-def edit_videos():
-    return render_template("admin_templates/edit_videos.html")
 
-@app.route('/edit/tour') 
-def edit_tour():
-    return render_template("admin_templates/edit_tour.html")
+@app.route('/edit/shows') 
+def edit_shows():
+    if 'username' in session:
+        shows = get_shows()
+        return render_template("admin_templates/edit_shows.html",
+                               shows=shows, name=session['username'])
+
+    return redirect(url_for('login'))
+
+
 
 @app.route('/edit/add_news', methods=['POST'])
 def add_news():
@@ -310,6 +330,18 @@ def delete_photo():
                  [request.form['photo_id_to_delete']])
     g.db.commit()
     return redirect(url_for('edit_photos'))
+
+
+@app.route('/edit/add_show', methods=['POST'])
+def add_show():
+    g.db.execute(
+        'insert into shows(show_date, venue, city_state, extra_info) values(?,?,?,?)',
+        [request.form['show_date'], 
+         request.form['venue'],
+         request.form['city'],
+         request.form['extra_info']])
+    g.db.commit()
+    return redirect(url_for('edit_shows'))
 
 
 

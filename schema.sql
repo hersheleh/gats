@@ -19,3 +19,13 @@ create table photos (
        id integer primary key autoincrement,
        filename string
 );
+
+drop table if exists shows;
+create table shows (
+       id integer primary key autoincrement,
+       show_date string not null,
+       venue string not null,	
+       city_state not null,
+       extra_info,
+       link_to_show
+);

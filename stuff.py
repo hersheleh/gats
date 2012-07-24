@@ -1,6 +1,7 @@
 
 import hashlib
 
+
 class news_post(object):
     
     def __init__(self, news_id, title, html_text, date, author, filename):
@@ -13,9 +14,22 @@ class news_post(object):
 
 
 class gats_image(object):
+
     def __init__(self, photo_id, filename):
         self.photo_id = photo_id
         self.filename = filename
+
+
+
+class gats_show(object):
+
+    def __init__(self, show_date, venue, city_state, extra_info):
+        self.show_date = show_date
+        self.venue = venue
+        self.city_state = city_state
+        self.extra_info = extra_info
+        # self.link = link
+
 
 
 class account(object):

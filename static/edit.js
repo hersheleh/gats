@@ -1,5 +1,28 @@
 
 var name_of_uploaded_file = "";
+var defaultValue = "";
+
+
+$(document).ready(function() {
+    $('input, textarea').click(function() {
+	if(this.value == this.defaultValue) {
+	    $(this).focus().val('');
+	}
+    });
+    
+    $('input, textarea').blur(function() {
+	if(this.value == '') {
+	    $(this).val(this.defaultValue);
+	}
+    }); 
+
+    $('.add_post').click(function() {
+	var value = $(this).html();
+	if (value.search('Write something here..') != -1)  {
+	    $(this).html(" ");
+	}
+    });
+});
 
 
 Aloha.ready( function() {
@@ -54,6 +77,24 @@ $(document).ready(function() {
     });
 });
 
+$(document).ready(function() {
+    $('#content').delegate("button.add_show","click", function() {
+	
+	var show_date = $("#show_date").val();
+	var venue = $("#venue").val();
+	var city = $("#city").val();
+	var extra_info = $("#extra_info").val();
+	$.post($SCRIPT_ROOT + '/edit/add_show',
+	       {show_date: show_date,
+		venue : venue,
+		city : city,
+		extra_info : extra_info},
+	       function(data) {
+		   update_shows(data);
+	       });
+    });
+});
+
 
 function update_news(data) {
     new_data = $(data).find('div#posted_content');
@@ -64,6 +105,11 @@ function update_news(data) {
 function update_photos(data) {
     new_photos = $(data).find('div#photo_gallery');
     $("div#photo_gallery").replaceWith(new_photos);
+}
+
+function update_shows(data) {
+    new_shows = $(data).find('div#show_list');
+    $('div#show_list').replaceWith(new_shows);
 }
 
 
