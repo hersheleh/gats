@@ -1,0 +1,190 @@
+button.add_photo {
+
+    color:black;
+    background-color:green;
+    opacity:0.8;
+    border-radius:5px;
+    width:121px;
+    font-family:"Courier 10 Pitch","Courier","Courier New";
+    font-size:18px;
+    font-weight:bold;
+}
+
+button.add_photo:hover {
+    background-color:#19A319;
+}
+
+
+button.delete_photo {
+    position:relative;
+    top:-32px;
+    left:118px;
+    z-index:50;
+    background-color:red;
+    opacity:0.8;
+    border-radius:5px;
+    font-size:12px;
+    font-family:'Courier 10 Pitch','Courier New','Courier';
+    font-weight:bold;
+
+}
+
+button.delete_photo:hover {
+    background-color:#CC0000;
+}
+
+
+
+
+#add_to_photos_tab {
+    width:100px;
+}
+
+#filename-text {
+
+    border-radius:5px;
+    border:0px;
+    background:none;
+    color:black;
+    font-family:"Courier 10 Pitch";
+    font-weight:bold;
+}
+
+
+#photo_tab_thumbnail {
+    position:absolute;
+    right:280px;
+    top:20px;
+    width:150px;
+    height:100px;
+
+}
+
+#upload-progressbar-container {
+    border-radius:3px;
+    width:150px;
+}
+
+#upload-progressbar {
+    border-radius:3px;
+    background-color:red;
+    opacity:0.6;
+    height: 10px;
+    width:0%;
+}
+
+#upload_feedback {
+    width:100px;
+    position:relative;
+    float:left;
+    right:-280px;
+    top:30px;
+}
+
+
+button.post {
+    color:black;
+    background-color:green;
+    opacity:0.8;
+    border-radius:5px;
+    position:relative;
+    width:80px;
+    height:40px;
+    float:right;
+    right:-60px;
+    top:35px;
+    bottom:30px;
+    font-family:"Courier 10 Pitch","Courier","Courier New";
+    font-size:20px;
+    font-weight:bold;
+}
+
+button.post:hover {
+    background-color:#19A319;
+}
+
+#add_photo {
+
+    position:relative;
+    top:30px;
+    left:-100px;
+    width:80px;
+    height:36px;
+    float:right;
+}
+
+
+button.delete {
+
+    background-color:red;
+    opacity:0.8;
+    border-radius:5px;
+    float:right;
+    font-family:'Courier 10 Pitch','Courier New','Courier';
+    font-weight:bold;
+}
+
+button.delete:hover {
+    background-color:#CC0000;
+}
+
+
+
+#edit_title {
+    font-family:'Courier 10 Pitch','Courier New','Courier';
+    font-weight:bold;
+    font-size:25px;
+    color:white;
+    background:none;
+    border:1px solid #333333;
+    border-radius:10px;
+    position:relative;
+    top:15px;
+    left:10px;
+    padding-left:7px;
+    padding-right:7px;
+}
+
+#edit_news_post {
+    margin-left:auto;
+    margin-right:auto;
+    border:1px solid #333333;
+    padding-left:7px;
+    padding-right:7px;
+    width:550px;
+    min-height:50px;
+    border-radius:15px;
+    position:relative;
+    top:20px;
+}
+
+
+.show_info {
+    width:200px;
+}
+
+.show_field {
+    font-family:'Courier 10 Pitch','Courier New','Courier';
+    font-size:16px;
+    background:none;
+    border: 1px solid #333333;
+    border-radius:5px;
+    color:white;
+    display:block;
+}
+
+button.add_show {
+    color:black;
+    background-color:green;
+    opacity:0.8;
+    border-radius:5px;
+    width:110px;
+    font-family:"Courier 10 Pitch","Courier","Courier New";
+    font-size:18px;
+    font-weight:bold;
+}
+
+button.add_show:hover {
+    background-color:#19A319;
+}
+

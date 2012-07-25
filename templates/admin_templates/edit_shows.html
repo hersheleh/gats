@@ -1,37 +1,44 @@
 {% extends "admin_templates/edit_layout.html" %}
 
 
-{% block tour %}
-<li class="tab" id="news"> 
-  <a id="news" class="tab_active"
-     href="{{ url_for('edit_news')  }}">
+{% block shows %}
+<li class="tab" id="shows"> 
+  <a id="shows" class="tab_active"
+     href="{{ url_for('edit_shows')  }}">
     SHOWS
   </a>
 </li>
-{% endblock tour %}
+{% endblock shows %}
 
 {% block content %}
 
 <div id="content">
   
   <div id="add_show">
-    <input class="show" id="show_date" type="text" value="Show Date">
-    <input class="show" id="venue" type="text" value="Venue">
-    <input class="show" id="city" type="text" value="City, State">
-    <textarea class="show" id="extra_info" rows="2" columns="20">Extra Info
-    </textarea>
+    <input class="show_field" id="show_date" 
+	   type="text" value="Date mm/dd/yy">
+    
+    <input class="show_field" id="venue" type="text" value="Venue">
+    <input class="show_field" id="city" type="text" value="City, State">
+    <textarea class="show_field" 
+	      id="extra_info" rows="2" columns="20">Extra Info</textarea>
     
     <button class="add_show">Add Show</button>
   </div>
 
   <div id="show_list">
     {% for show in shows %}
-
-    {{ show.show_date }}<br />
-    {{ show.venue }}<br />
-    {{ show.city_state }}<br />
-    {{ show.extra_info }}<br />
-
+      {% if shows.index(show)%2 == 0 %} 
+      <div class="show_info" style="float:left">
+      {% else %}
+      <div class="show_info" style="float:right">
+      {% endif %}
+	 <span style="font-weight:bold">{{ show.verbose_date() }}</span>
+	   <br />
+	 {{ show.venue }}<br />
+	 {{ show.city_state }}<br />
+	 {{ show.extra_info }}<br />
+    </div>
     {% endfor %}
 
   </div>

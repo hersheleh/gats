@@ -1,3 +1,8 @@
+<!--
+    Website Created By
+    Gregory Khachaturyan (Grisha)
+    an affiliate of Dyrodesign.com
+-->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -8,13 +13,10 @@
     <link href="{{ url_for('static', filename='gats_dark.css') }}"
 	  type="text/css" rel="stylesheet" />
     
-    <link href="{{ url_for('static', filename='lightbox/css/lightbox.css') }}"
-	  rel="stylesheet" />
-	  
-    <link href="{{ url_for('static', filename='aloha/css/aloha.css') }}"
-	  type="text/css" rel="stylesheet" />
-    
+    {% block other_stylesheets  %}
+    {% endblock other_stylesheets %}
 
+    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js">
     </script>
     
@@ -31,8 +33,8 @@
       $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
     </script>
     
-    {% block javascript  %}
-    {% endblock javascript %}
+    {% block other_javascript  %}
+    {% endblock other_javascript %}
     
   </head>
   {% block body %}
@@ -70,7 +72,7 @@
 	</div>
 	{% endblock content %}
 	  
-
+	{% block sidebar  %}
 	<div id="bandcamp">
 	  <iframe 
 	     width="150" height="450" 
@@ -84,6 +86,7 @@
 	    </a>
 	  </iframe>
 	</div>
+	{% endblock sidebar  %}
       </div>
     </div>
 

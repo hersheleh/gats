@@ -38,22 +38,7 @@ a.gats_images {
     padding:5px;
 }
 
-#add_photo {
-    position:relative;
-    top:30px;
-    left:-100px;
-    width:80px;
-    height:36px;
-    float:right;
-    //border-radius:5px;   
-}
 
-button.delete_photo {
-    position:relative;
-    top:-32px;
-    left:118px;
-    z-index:50;
-}
 
 .gats_photo {
     opacity:0.9;
@@ -68,124 +53,21 @@ button.delete_photo {
 }
 
 
-
-#add_to_photos_tab {
-    width:100px;
-}
-
-#photo_tab_thumbnail {
-    position:absolute;
-    right:280px;
-    top:20px;
-    width:150px;
-    height:100px;
-
-}
-
-
-#filename-text {
-
-    border-radius:5px;
-    border:0px;
-    background:none;
-    color:black;
-    font-family:"Courier 10 Pitch";
-    font-weight:bold;
-}
-
-#upload-progressbar-container {
-    border-radius:3px;
-    width:150px;
-}
-
-#upload-progressbar {
-    border-radius:3px;
-    background-color:red;
-    opacity:0.6;
-    height: 10px;
-    width:0%;
-}
-
-#upload_feedback {
-    width:100px;
+#show_list {
     position:relative;
-    float:left;
-    right:-280px;
-    top:30px;
-}
-
-
-button.post {
-    color:black;
-    background-color:green;
-    opacity:0.8;
-    border-radius:5px;
-    position:relative;
-    width:80px;
-    height:40px;
-    float:right;
-    right:-60px;
-    top:35px;
-    bottom:30px;
-    font-family:"Courier 10 Pitch","Courier","Courier New";
-    font-size:20px;
-    font-weight:bold;
-}
-
-button.post:hover {
-    background-color:#19A319;
-}
-
-button.delete {
-
-    background-color:red;
-    opacity:0.8;
-    border-radius:5px;
-    float:right;
-    font-family:'Courier 10 Pitch','Courier New','Courier';
-    font-weight:bold;
-}
-
-button.delete:hover {
-    background-color:#CC0000;
-}
-
-#edit_title {
-    font-family:'Courier 10 Pitch','Courier New','Courier';
-    font-weight:bold;
-    font-size:25px;
-    color:white;
-    background:none;
-    border:1px solid #333333;
-    border-radius:10px;
-    position:relative;
-    top:15px;
-    left:10px;
-    padding-left:7px;
-    padding-right:7px;
-}
-
-#edit_news_post {
     margin-left:auto;
     margin-right:auto;
-    border:1px solid #333333;
-    padding-left:7px;
-    padding-right:7px;
-    width:550px;
-    min-height:50px;
-    border-radius:15px;
-    position:relative;
     top:20px;
+    width:500px;
+    
 }
 
-.show {
-    font-family:'Courier 10 Pitch','Courier New','Courier';
-    font-size:16px;
-    background:none;
-    border: 1px solid #333333;
-    border-radius:5px;
-    color:white;
-    display:block;
+.show_info {
+
+    position:relative;
+    top:20px;
+    display:inline-table;
+    
 }
 
 
@@ -198,14 +80,6 @@ button.delete:hover {
 
     font-size:12px;
 }
-
-
-/*#MEEE {
-    //color:black;
-    font-size:100px;
-    font-weight:bold;
-
-}*/
 
 .news_post {
     position:relative;
@@ -223,6 +97,26 @@ button.delete:hover {
     
     font-size:25px;
     font-weight:bold;
+
+}
+
+.contact_info {
+    
+    position:relative;
+    top:50px;
+    margin-left:auto;
+    margin-right:auto;
+    width:550px;
+    font-size:30px;
+    text-align:center;
+    
+}
+
+.email_contact {
+    position:relative;
+    font-weight:bold;
+    color:#5CE62E;
+    text-decoration:none
 
 }
 
@@ -304,4 +198,3 @@ ul#navigator {
     position:absolute;
     right:20px;
 }
-

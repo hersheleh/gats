@@ -18,41 +18,41 @@
     <li class="tab" id="news"> 
       <a id="news" class="tab" 
 	 href="{{ url_for('gats_news')  }}">NEWS</a></li>
-    {% endblock  %}
+    {% endblock  news %}
 
     {% block photos %}
     <li class="tab" id="photos"> 
       <a id="photos" class="tab" 
 	 href="{{ url_for('gats_photos') }}">PHOTOS</a></li>
-    {% endblock %}
+    {% endblock photos %}
 
     {% block video %}
     <li class="tab" id="video"> 
       <a id="video" class="tab" 
 	 href="{{ url_for('gats_videos') }}">VIDEOS</a></li>
-    {% endblock %}
+    {% endblock video %}
 
-    {% block tour %}
-    <li class="tab" id="tour"> 
-      <a id="tour" class="tab" 
+    {% block shows %}
+    <li class="tab" id="shows"> 
+      <a id="shows" class="tab" 
 	 href="{{ url_for('gats_shows') }}"> SHOWS</a></li>
-    {% endblock %}
+    {% endblock shows %}
 
 
     {% block band  %}
     <li class="tab" id="band"> 
       <a id="band" class="tab" 
 	 href="{{ url_for('gats_band')  }}">THE BAND</a></li>
-    {% endblock %}
+    {% endblock band %}
 
     {% block contact %}
     <li class="tab" id="contact"> 
       <a id="contact" class="tab" 
 	 href="{{ url_for('gats_news') }}"> CONTACT</a></li>
-    {% endblock %}
+    {% endblock contact %}
 
 
     
   </ul>
 </div>
-{% endblock %}
+{% endblock menu %}

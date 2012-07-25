@@ -1,0 +1,47 @@
+{% extends "gats_menu.html"  %}
+
+{% block contact  %}
+<li class="tab" id="contact"> 
+  <a class="tab_active" id="contact"  href="{{ url_for('gats_contact') }}">
+    CONTACT</a></li>
+{% endblock contact %}
+
+{% block content  %}
+<div id="content">
+  
+  <div class="contact_info">
+    For Booking Information<br />
+    and other inquiries<br />
+    please contact the band at:
+    <a class="email_contact" 
+       href="mailto:gibbonsandthesluts@gmail.com" 
+       target="_blank">
+      gibbonsandthesluts@gmail.com
+    </a>
+    <div>or</div>
+    <a class="email_contact" 
+       href="mailto:miedlenarecords@gmail.com" 
+       target="_blank">
+       miedlenarecords@gmail.com
+    </a>
+    <br />
+    <br />
+    Also Check Out
+    <div>
+      <a class="email_contact"
+	 href="http://miedlena.com" 
+	 target="_blank"
+	 style="color:#ed002d">
+
+	Miedlena Records
+      </a>
+    </div>
+
+    
+  </div>
+
+</div>
+
+{% endblock content  %}
+
+

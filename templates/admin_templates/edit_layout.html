@@ -1,6 +1,22 @@
 {% extends "gats_layout.html" %}
 
-{% block javascript %}
+
+{% block other_stylesheets  %}
+<link href="{{ url_for('static', filename='edit.css') }}"
+      type="text/css" rel="stylesheet" />
+
+<link href="{{ url_for('static', filename='lightbox/css/lightbox.css') }}"
+	  rel="stylesheet" />
+	  
+<link href="{{ url_for('static', filename='aloha/css/aloha.css') }}"
+	  type="text/css" rel="stylesheet" />
+    
+
+{% endblock other_stylesheets  %}
+
+
+{% block other_javascript %}
+
 <script type="text/javascript"
 	src="{{ url_for('static', filename='edit_config.js') }}">
 </script>
@@ -15,10 +31,13 @@
 </script>
 
 <script type="text/javascript"
+	src="{{ url_for('static', filename='date.js') }}"> </script>
+
+<script type="text/javascript"
 	src="{{ url_for('static', filename='edit.js') }}"> </script>
 
 
-{% endblock javascript %}
+{% endblock other_javascript %}
 
 {% block header %}
 <div id="account">
@@ -51,11 +70,11 @@
 		       href="{{ url_for('edit') }}">VIDEOS</a></li>
     {% endblock %}
 
-    {% block tour %}
-    <li class="tab" id="tour"> 
-      <a id="tour" class="tab" 
+    {% block shows %}
+    <li class="tab" id="shows"> 
+      <a id="shows" class="tab" 
 	 href="{{ url_for('edit_shows') }}"> SHOWS</a></li>
-    {% endblock %}
+    {% endblock shows %}
 
 
 
@@ -80,3 +99,7 @@
 
 
 {% endblock content  %}
+
+{% block sidebar %}
+
+{% endblock sidebar %}

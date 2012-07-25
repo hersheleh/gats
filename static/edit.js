@@ -4,9 +4,9 @@ var defaultValue = "";
 
 
 $(document).ready(function() {
-    $('input, textarea').click(function() {
+    $('input, textarea').focus(function() {
 	if(this.value == this.defaultValue) {
-	    $(this).focus().val('');
+	    $(this).val('');
 	}
     });
     
@@ -16,7 +16,7 @@ $(document).ready(function() {
 	}
     }); 
 
-    $('.add_post').click(function() {
+    $('.add_post').focus(function() {
 	var value = $(this).html();
 	if (value.search('Write something here..') != -1)  {
 	    $(this).html(" ");
@@ -83,16 +83,31 @@ $(document).ready(function() {
 	var show_date = $("#show_date").val();
 	var venue = $("#venue").val();
 	var city = $("#city").val();
-	var extra_info = $("#extra_info").val();
-	$.post($SCRIPT_ROOT + '/edit/add_show',
-	       {show_date: show_date,
-		venue : venue,
-		city : city,
-		extra_info : extra_info},
-	       function(data) {
-		   update_shows(data);
-	       });
+	var extra_info = set_input_value($('#extra_info'));
+	if (validate_date(show_date)) {
+	    
+	    $.post($SCRIPT_ROOT + '/edit/add_show',
+		   {show_date: show_date,
+		    venue : venue,
+		    city : city,
+		    extra_info : extra_info},
+		   function(data) {
+		       update_shows(data);
+		   });
+	}
+	else {
+ 	    $("#show_date").val("Invalid Date");
+	    $("#show_date").css('color', '#FF0000');
+	    $('#show_date').focus(function() {
+		if(this.value == "Invalid Date") {
+		    $(this).val('');
+		    $("#show_date").css('color', 'white');
+		}
+	    
+	    });
+	}
     });
+			  
 });
 
 
@@ -105,6 +120,25 @@ function update_news(data) {
 function update_photos(data) {
     new_photos = $(data).find('div#photo_gallery');
     $("div#photo_gallery").replaceWith(new_photos);
+}
+
+function set_input_value(input_value) {
+    if(input_value[0].value != input_value[0].defaultValue) {
+	return input_value.val();
+    }
+    else {
+	return "";
+    }    
+}
+
+function validate_date(date) {
+    var entered_date = Date.parseExact(date,"MM/dd/yy");
+    if (entered_date == null) {
+	return false;
+    }
+    else {
+	return true;
+    }
 }
 
 function update_shows(data) {

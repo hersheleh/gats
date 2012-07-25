@@ -3,7 +3,7 @@ import sqlite3
 import os
 import PIL
 from PIL import Image
-from stuff import *
+from gats_content_objects import *
 from config_gats import *
 from contextlib import closing
 from flask import Flask, jsonify, render_template, request, g , redirect, url_for, session, send_from_directory
@@ -85,8 +85,9 @@ def thumbnails(filename):
 ######## JAVASCRIPT FALLBACK ROUTES##############################
 
 @app.route('/')
-def link_root():
-    return render_template("gats_home.html")
+def index():
+    posts = get_news()
+    return render_template('gats_news.html', posts=posts)
 
 @app.route('/news')
 def gats_news():
@@ -106,9 +107,13 @@ def gats_videos():
 def gats_band():
     return render_template("gats_band.html")
 
-@app.route('/tour')
+@app.route('/shows')
 def gats_shows():
     return render_template("gats_shows.html")
+
+@app.route('/contact')
+def gats_contact():
+    return render_template("gats_contact")
 #################################################################
 
 
@@ -118,9 +123,8 @@ def gats_shows():
 @app.route('/navigate', methods=['GET','POST'])
 def navigate():
     page = request.form["p"]
-    print page
-    if "home" in page:
-        return render_template("gats_home.html")
+    if "contact" in page:
+        return render_template("gats_contact.html")
 
     elif "news" in page:
         posts = get_news()
@@ -136,8 +140,12 @@ def navigate():
     elif "band" in page:
         return render_template("gats_band.html")
 
-    elif "tour" in page:
+    elif "shows" in page:
         return render_template("gats_shows.html")
+
+    else:
+        return redirect(url_for('index'))
+
 #######################################################################
 
 
@@ -189,7 +197,7 @@ def authenticate(username, password):
     print 'false'
     return False
 
-########################################################################
+##########################################################################
 
 ####### UTILITY FUNCTIONS ################################################
 
@@ -224,17 +232,14 @@ def get_photos():
     return reversed(photos)
 
 def get_shows():
-    shows = []
     raw_data = g.db.execute(
         'select show_date, venue, city_state, extra_info from shows')
 
-    show_list = raw_data.fetchall()
+    shows = show_list()
     
-    for show in show_list:
-        shows.append(
-            gats_show(show[0],show[1],show[2],show[3]))
-        
-    return reversed(shows)
+    shows.make_show_list_from_fetchall(raw_data.fetchall())
+    
+    return shows.get_date_sorted_show_list()
     
 
 
