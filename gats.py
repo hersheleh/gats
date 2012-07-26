@@ -236,7 +236,6 @@ def get_shows():
         'select show_date, venue, city_state, extra_info from shows')
 
     shows = show_list()
-    
     shows.make_show_list_from_fetchall(raw_data.fetchall())
     
     return shows.get_date_sorted_show_list()
@@ -328,6 +327,8 @@ def add_photo():
                  [request.form['filename']])
     g.db.commit()
     return redirect(url_for('edit_photos'))
+
+
 
 @app.route('/edit/delete_photo', methods=['POST'])
 def delete_photo():

@@ -1,5 +1,10 @@
 {% extends "admin_templates/edit_layout.html" %}
 
+{% block page_specific_javascript %}
+<script type="text/javascript"
+	src="{{ url_for('static', filename='swfupload_config.js') }}">
+</script>
+{% endblock page_specific_javascript %}
 
 {% block news %}
 <li class="tab" id="news"> 
@@ -32,7 +37,7 @@
       <input type="text" name="filename-text" id="filename-text"/>
       <div id="swfupload-container"></div>
       <input type="hidden" name="hidFileID" id="hidFileID" value=""/>
-      {#<input class="add_photo_to_post" type="submit" value="Add Photo"/>#}
+
       <div id="upload-progressbar-container">
 	<div id="upload-progressbar">
 	</div>

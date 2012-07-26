@@ -1,5 +1,13 @@
 {% extends "admin_templates/edit_layout.html" %}
 
+
+{% block page_specific_javascript %}
+<script type="text/javascript"
+	src="{{ url_for('static', filename='swfupload_config.js') }}">
+</script>
+{% endblock page_specific_javascript %}
+
+
 {% block photos %}
 <li class="tab" id="news">
   <a id="news" class="tab_active"

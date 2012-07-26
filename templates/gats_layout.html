@@ -22,25 +22,28 @@
     
     <script src="{{ url_for('static', filename='jquery-1.7.2.min.js') }}">
     </script>
-      
-    <script src="{{ url_for('static',filename='hashchange.min.js') }}">
-    </script>
     
     <script src="{{ url_for('static', filename='lightbox/js/lightbox.js') }}">
     </script>
+
     
     <script type="text/javascript">
       $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
     </script>
     
     {% block other_javascript  %}
+    <script src="{{ url_for('static',filename='hashchange.min.js') }}">
+    </script>
+
+    <script src="{{ url_for('static', filename='gats2.js') }}">
+    </script>
     {% endblock other_javascript %}
     
   </head>
   {% block body %}
   {% block body_style %}
   <body id="gats">
-    {% endblock  %}
+  {% endblock body_style %}
     
     <div id="whole-page">
       <div id="header">
