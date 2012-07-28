@@ -169,6 +169,7 @@ button.delete:hover {
     border-radius:5px;
     color:white;
     display:block;
+    width:205px;
 }
 
 button.add_show {

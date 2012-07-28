@@ -2,14 +2,20 @@
 var Aloha = window.Aloha || (window.Aloha = {});
 
 Aloha.settings = {
-  /*  floatingmenu: {
-	behaviour: 'float',
-	horizontalOffset: 1000
-    },*/
+    floatingmenu: {
+	width:200,
+	pin:false,
+	horizontalOffset:5,
+	topalignOffset:40,
+	
+    },
 
     plugins: {
 	format: {
-	    config: ['b', 'i', 'p', 'del', 'title', 'pre']
+	    config: ['b', 'i', 'p', 'del', 'title', 'pre'],
+	    editables : {
+		'#edit_no_menu': []
+	    }
 	}
     }
 };

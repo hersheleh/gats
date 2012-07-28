@@ -28,6 +28,7 @@ $(document).ready(function() {
 Aloha.ready( function() {
       
     Aloha.jQuery('#edit').aloha();
+    Aloha.jQuery('#edit_no_menu').aloha();
 });
 
 
