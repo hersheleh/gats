@@ -17,12 +17,14 @@ $(document).ready(function() {
     }); 
 
     $('.add_post').focus(function() {
-	var value = $(this).html();
-	if (value.search('Write something here..') != -1)  {
-	    $(this).html(" ");
-	}
+	text_disapear("Write something here...");
+    });
+    
+    $('.extra_info').focus(function() {
+	text_disapear("Extra Info");
     });
 });
+
 
 
 Aloha.ready( function() {
@@ -64,7 +66,6 @@ $(document).ready(function() {
 		   update_photos(data);
 	       });
     });
-	
 });
 
 $(document).ready(function() {
@@ -84,7 +85,7 @@ $(document).ready(function() {
 	var show_date = $("#show_date").val();
 	var venue = $("#venue").val();
 	var city = $("#city").val();
-	var extra_info = set_input_value($('#extra_info'));
+	var extra_info = $('#extra_info').html();
 	if (validate_date(show_date)) {
 	    
 	    $.post($SCRIPT_ROOT + '/edit/add_show',
@@ -111,6 +112,12 @@ $(document).ready(function() {
 			  
 });
 
+function text_disapear(text) {
+    var value = $(this).html();
+    if (value.search(text) != -1) {
+	$(this).html(" ");
+    }
+}
 
 function update_news(data) {
     new_data = $(data).find('div#posted_content');
@@ -122,9 +129,9 @@ function update_photos(data) {
     new_photos = $(data).find('div#photo_gallery');
     $("div#photo_gallery").replaceWith(new_photos);
 }
-
-function set_input_value(input_value) {
-    if(input_value[0].value != input_value[0].defaultValue) {
+		  
+function set_extra_info() {
+    if("" != input_value[0].defaultValue) {
 	return input_value.val();
     }
     else {
@@ -146,5 +153,3 @@ function update_shows(data) {
     new_shows = $(data).find('div#show_list');
     $('div#show_list').replaceWith(new_shows);
 }
-
-

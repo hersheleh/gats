@@ -11,7 +11,7 @@ from werkzeug import secure_filename
 
 
 UPLOAD_FOLDER =  'static/files/images'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg','gif'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -65,6 +65,7 @@ def upload_file():
     return filename
 
 
+        
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
