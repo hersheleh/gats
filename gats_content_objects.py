@@ -24,7 +24,8 @@ class gats_image(object):
 
 class gats_show(object):
 
-    def __init__(self, show_date, venue, city_state, extra_info):
+    def __init__(self, show_id, show_date, venue, city_state, extra_info):
+        self.show_id = int(show_id)
         self.show_date = self.make_date(show_date)
         self.venue = venue
         self.city_state = city_state
@@ -56,7 +57,7 @@ class show_list(object):
         shows = []
         for show in show_list:
             shows.append(
-                gats_show(show[0], show[1], show[2], show[3]))
+                gats_show(show[0], show[1], show[2], show[3], show[4]))
             
         self.show_object_list = reversed(shows)
 

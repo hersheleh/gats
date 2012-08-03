@@ -181,7 +181,7 @@ def create_account(username, password):
     with closing(connect_db()) as db:
         db.execute(
             'insert into accounts(username,password) values(?,?)',
-            [temp.username,temp.password])
+           [temp.username,temp.password])
         db.commit()
 
 
@@ -234,13 +234,25 @@ def get_photos():
 
 def get_shows():
     raw_data = g.db.execute(
-        'select show_date, venue, city_state, extra_info from shows')
+        'select id, show_date, venue, city_state, extra_info from shows')
 
     shows = show_list()
     shows.make_show_list_from_fetchall(raw_data.fetchall())
     
     return shows.get_date_sorted_show_list()
     
+def delete_from_fs(delete_file_name):
+
+    original_file_path = app.config['UPLOAD_FOLDER']
+    thumbnail_file_path = os.path.join(app.config['UPLOAD_FOLDER'],
+                                       "thumbnails")
+    resized_file_path = os.path.join(app.config['UPLOAD_FOLDER'],
+                                     "resized")
+
+    os.remove(os.path.join(original_file_path, delete_file_name))
+    os.remove(os.path.join(thumbnail_file_path, delete_file_name))
+    os.remove(os.path.join(resized_file_path, delete_file_name))
+
 
 
 def resize_image(filename, size, folder):
@@ -316,6 +328,11 @@ def add_news():
 
 @app.route('/edit/delete_news', methods=['POST'])
 def delete_news():
+    news_id = request.form['del']
+    raw = g.db.exeucte('select filename from news where id=?',
+                       [news_id])
+    delete_file = raw.fetchall()
+    delete_from_fs(delete_file[0][0])
     g.db.execute('delete from news where id=?',
                  [request.form['del']])
     g.db.commit()
@@ -333,8 +350,15 @@ def add_photo():
 
 @app.route('/edit/delete_photo', methods=['POST'])
 def delete_photo():
+    photo_id = request.form['photo_id_to_delete']
+    raw = g.db.execute('select filename from photos where id=?',
+                       [photo_id])
+    delete_file = raw.fetchall()
+    delete_from_fs(delete_file[0][0])
+
+
     g.db.execute('delete from photos where id=?',
-                 [request.form['photo_id_to_delete']])
+                 [photo_id])
     g.db.commit()
     return redirect(url_for('edit_photos'))
 
@@ -350,7 +374,13 @@ def add_show():
     g.db.commit()
     return redirect(url_for('edit_shows'))
 
+@app.route('/edit/delete_show', methods=['POST'])
+def delete_show():
 
+    g.db.execute('delete from shows where id=?',
+                 [request.form['show_id_to_delete']])
+    g.db.commit()
+    return redirect(url_for('edit_shows'))
 
 #################################################################
 if __name__ == '__main__':

@@ -20,9 +20,8 @@
     
     <input class="show_field" id="venue" type="text" value="Venue">
     <input class="show_field" id="city" type="text" value="City, State">
-    <div class="show_field">
-      <p class="extra_info" id="edit_no_menu">Extra Info</p>
-    </div>
+    <textarea class="show_field" id="extra_info"
+	      rows="3" cols="20">Extra Info</textarea>
     <button class="add_show">Add Show</button>
   </div>
 
@@ -37,13 +36,14 @@
 	   <br />
 	 {{ show.venue }}<br />
 	 {{ show.city_state }}<br />
-	 {{ show.extra_info }}<br />
+	 {{ show.extra_info|safe }}<br />
+	   <button id="{{ show.show_id }}" class="delete_show">
+	     delete
+	   </button>
     </div>
     {% endfor %}
 
   </div>
-
-
 </div>
 
 

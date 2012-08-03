@@ -10,6 +10,61 @@
 
 {% block content %}
 <div id="content">
-  Soon you're gonna read about the band Muthafucka!!!
+  
+  <div class="band_profiles">
+    <div class="band_profile">
+      <div class="band_member">Vita Khachaturyan</div>
+      <img class="portrait"
+	 src="{{ url_for('static', filename='images/band_profiles/vita_back.jpg') }}"/ >
+      <p class="band_bio">
+	Vita was born a grandma & a genius. She writes accordion parts that no one else in the world could ever conceive. In the winters she does nothing but knit hats & scarves for her friends and sometimes won't talk to anyone for weeks. She speaks 5 languages (english, russian, spanish, gibberish, and jive) and is jewish not russian.
+      </p>
+    </div>
+    
+
+    <div class="band_profile">
+      <div class="band_member">Gibbons Johnson</div>
+            <img class="portrait"
+	 src="{{ url_for('static', filename='images/band_profiles/gib_saw.jpg') }}"/ >
+
+      <p class="band_bio">
+	Mister Uncle Gibbons Johnson is a man of a many talents; he is a scholar, an athlete, and an expert maker of eggs. His most important duty, however, is as the mother of his band, Gibbons and the Sluts. He suffered a long and dangerous journey from Bakersfield, Californa to Los Angeles and gave birth to his beloved sluts. With a banjo at hand, Chester the Singing Saw by his side, and 4 mighty Sluts in his arms, Gibbons is prepared to enthrall the universe with his music. In the meantime he’ll be playing basketball and sTudying Russian.
+    </p>
+    </div>
+
+
+  <div class="band_profile">
+    <div class="band_member">Julie Orlick</div>
+      <img 
+	 class="portrait"
+	 src="{{ url_for('static', filename='images/band_profiles/jul_homerm.jpg') }}" />
+    <p class="band_bio">
+      Julie is one of the coolest sluts. She has been playing the trumpet since her marching band days at fairfax high school. when at home, she dances to old jazz records and has dreams of becoming a famous tap dancer. you can usually find her hanging out late at night in coffee shops and diners, taking photos and drawing comics. she loves to eat crackers, cheese and salami and loves to bake. she plans to attend college for art and baking and pastry arts in her very near future. (in an english accent) "i am an artist. i have been in my basement painting for 20 years and haven't seen the light of day until gibbons called me and said, 'julie, play the trumpet and be my slut!' "
+    </p>
+    </div>    
+
+  <div class="band_profile">
+    <div class="band_member">Mateo</div>
+    <img 
+       class="portrait"
+       src="{{ url_for('static', filename='images/band_profiles/mateophoto.jpg') }}" />
+    <p class="band_bio">
+      Mateo plays drums for Gibbons and the Sluts and founded their label, Miedlena. He grew up in the Los Angeles area, and has been playing various instruments since childhood. He studied philosophy at UC Berkeley, made 4 albums in 3 years under various pseudonyms, lived in the hills of Mexico City for a year, and studied music at CSU Northridge. He currently lives at the Casa de Angelopes in Inglewood, a community live/work space where people build bikes, make art, do crafts, play music, and bother their neighbors. 
+    </p>
+  </div>
+  <div class="band_profile">
+    <div class="band_member"> Stan Dyro </div>
+    <img 
+       class="portrait"
+       src="{{ url_for('static', filename='images/band_profiles/stan_loud.jpg') }}" />
+    <p class="band_bio">
+      Stan is Gibbons and the Sluts' resident upright bass player and barritone master. Thrust into his position in the band, he has overcome insurmountable odds to become one half of the bands rhythm and groove section. In addition to bass, Stan also plays guitar and is one half of the bluegrass garage duo the Kangagnus. In his spare time Stan programs websites for his web design company dyrodesign.com. His influences include Fugazi, At the Drive-In and James Brown. He enjoys hanging out with his girlfriend and watching movies.
+    </p>
+  </div>
+
+  </div>
+
+
+
 </div>
 {% endblock %}

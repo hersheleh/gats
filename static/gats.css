@@ -22,6 +22,23 @@
 
 }
 
+.gats_video_set_title {
+    margin-left:auto;
+    margin-right:auto;
+    width:220px;
+    font-weight:bold;
+    font-size:20px;
+
+}
+.gats_videos {
+    position:relative;
+    top:20px;
+    margin-left:auto;
+    margin-right:auto;
+    width:480px;
+
+}
+
 #photo_gallery {
     margin-left:auto;
     margin-right:auto;
@@ -99,6 +116,32 @@ a.gats_images {
     font-weight:bold;
 
 }
+.band_member {
+
+    font-weight:bold;
+
+}
+.portrait {
+    position:relative;
+    float:right;
+    width:220px;
+}
+
+.band_profile {
+    position:relative;
+    display:table;
+    top:10px;
+}
+
+
+
+.band_bio {
+    position:relative;
+    float:left;
+    font-size:14px;
+    width: 310px;
+}
+
 
 .contact_info {
     

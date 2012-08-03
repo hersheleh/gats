@@ -187,3 +187,17 @@ button.add_show:hover {
     background-color:#19A319;
 }
 
+button.delete_show {
+
+    background-color:red;
+    opacity:0.8;
+    border-radius:5px;
+    //float:right;
+    font-family:'Courier 10 Pitch','Courier New','Courier';
+    font-weight:bold;
+}
+
+button.delete_show:hover {
+    background-color:#CC0000;
+}
+
