@@ -10,8 +10,8 @@ from flask import Flask, jsonify, render_template, request, g , redirect, url_fo
 from werkzeug import secure_filename
 
 
-UPLOAD_FOLDER =  'static/files/images'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg','gif'])
+
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -329,10 +329,10 @@ def add_news():
 @app.route('/edit/delete_news', methods=['POST'])
 def delete_news():
     news_id = request.form['del']
-    raw = g.db.exeucte('select filename from news where id=?',
+    raw = g.db.execute('select filename from news where id=?',
                        [news_id])
     delete_file = raw.fetchall()
-    delete_from_fs(delete_file[0][0])
+    # delete_from_fs(delete_file[0][0])
     g.db.execute('delete from news where id=?',
                  [request.form['del']])
     g.db.commit()
