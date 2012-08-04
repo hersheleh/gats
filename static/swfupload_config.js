@@ -67,7 +67,7 @@ function uploadSuccess(file, serverData, recievedResponse) {
 }
 
 function setThumbnail(filename) {
-    $("img#thumbnail").attr('src', $SCRIPT_ROOT+"/static/files/images/"+
+    $("img#thumbnail").attr('src', $SCRIPT_ROOT+"/uploads/"+
 			    filename);
     $("img#thumbnail").width(100);
     $("span#upload_done").text("Upload Complete");

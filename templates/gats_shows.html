@@ -21,23 +21,29 @@
   {% block content  %}
   <div id="content">
     <div class="tour_name">
-      <p>Reunion Tour</p>
+      <p style="text-align:center; font-weight:bold; font-size:30px;">Reunion Tour</p>
     </div>
     <div id="show_list">
       {% for show in shows %}
       {% if shows.index(show)%2 == 0 %} 
+
       <div class="show_info" style="float:left">
-	{% else %}
-	<div class="show_info" style="float:right">
-	  {% endif %}
+      {% else %}
+      <div class="show_info" style="float:right">
+      
+      {% endif %}
+
 	  <span style="font-weight:bold">{{ show.verbose_date() }}</span>
 	  <br />
 	  {{ show.venue }}<br />
 	  {{ show.city_state }}<br />
 	  {{ show.extra_info|safe }}<br />
+	  
+
 	</div>
 	{% endfor %}
 
+	
       </div>
 
 

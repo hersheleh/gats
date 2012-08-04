@@ -64,26 +64,27 @@ a.gats_images {
 }
 
 .gats_photo:hover {
-    
-    opacity:1;
 
+    opacity:1;
 }
 
 
 #show_list {
     position:relative;
+    display:table;
     margin-left:auto;
     margin-right:auto;
     top:20px;
-    width:500px;
+    width:550px;
     
 }
 
 .show_info {
-
+    width:250px;
+    height:150px;
     position:relative;
     top:20px;
-    display:inline-table;
+    padding-bottom:20px;
     
 }
 

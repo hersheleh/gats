@@ -11,7 +11,6 @@ from werkzeug import secure_filename
 
 
 
-
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -110,7 +109,8 @@ def gats_band():
 
 @app.route('/shows')
 def gats_shows():
-    return render_template("gats_shows.html")
+    shows = get_shows()
+    return render_template("gats_shows.html", shows=shows)
 
 @app.route('/contact')
 def gats_contact():
@@ -142,7 +142,8 @@ def navigate():
         return render_template("gats_band.html")
 
     elif "shows" in page:
-        return render_template("gats_shows.html")
+        shows = get_shows()
+        return render_template("gats_shows.html", shows=shows)
 
     else:
         return redirect(url_for('index'))
@@ -172,7 +173,7 @@ def logout():
 
 
 ### SECRET KEY ############################
-app.secret_key = 'development key'
+app.secret_key = 'giraffesandcatsaredabomb'
 
 ########################################
 
