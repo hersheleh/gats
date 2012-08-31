@@ -114,7 +114,7 @@ def gats_shows():
 
 @app.route('/contact')
 def gats_contact():
-    return render_template("gats_contact")
+    return render_template("gats_contact.html")
 #################################################################
 
 
@@ -355,7 +355,7 @@ def delete_photo():
     raw = g.db.execute('select filename from photos where id=?',
                        [photo_id])
     delete_file = raw.fetchall()
-    delete_from_fs(delete_file[0][0])
+    # delete_from_fs(delete_file[0][0])
 
 
     g.db.execute('delete from photos where id=?',
